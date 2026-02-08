@@ -1,0 +1,94 @@
+/* src/App.css */
+:root {
+  --neon-blue: #00f3ff;
+  --neon-green: #0aff0a;
+  --bg-color: #050505;
+}
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+}
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+/* 酷炫的反應爐核心動畫 */
+.reactor {
+  width: 150px;
+  height: 150px;
+  border: 4px solid var(--neon-blue);
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  position: relative;
+  box-shadow: 0 0 20px var(--neon-blue), inset 0 0 20px var(--neon-blue);
+  animation: pulse 2s infinite ease-in-out;
+}
+.core {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #fff, var(--neon-blue));
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 50px var(--neon-blue);
+}
+.orbit {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  animation: spin 4s linear infinite;
+}
+h1 {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.status {
+  color: var(--neon-green);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px var(--neon-green);
+}
+/* 互動按鈕 */
+button {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+button:hover {
+  background: var(--neon-blue);
+  color: var(--bg-color);
+  box-shadow: 0 0 30px var(--neon-blue);
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 20px var(--neon-blue), inset 0 0 20px var(--neon-blue); }
+  50% { box-shadow: 0 0 50px var(--neon-blue), inset 0 0 40px var(--neon-blue); }
+}
